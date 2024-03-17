@@ -1,5 +1,5 @@
 ::Mods you want to run on the server. 
-SET "MODS=@FirstMod"
+SET "MODS="
 
 :: Set the directory to your project.  This is where you cloned your . 
 SET "PROJECTDIR=E:\2024 Projects\DayZ Projects\DayZ-Project-Template"
