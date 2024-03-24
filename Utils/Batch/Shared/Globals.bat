@@ -1,3 +1,5 @@
-SET "GLOBALMODS=P:\Mods\@CF;P:\Mods\@Dabs Framework;P:\Mods\@Community-Online-Tools;"
+SET "GAMEDIR=C:\Program Files (x86)\Steam\steamapps\common\DayZ"
+SET "PROJECTDIR=E:\2024 Projects\DayZ Projects\DayZ-Project-Template"
 SET "PDRIVE=P:\"
 SET "MODDIR=P:\Mods"
+SET "GLOBALMODS=P:\Mods\@CF;P:\Mods\@Dabs Framework;P:\Mods\@Community-Online-Tools;"
