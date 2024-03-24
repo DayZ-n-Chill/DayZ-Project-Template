@@ -15,7 +15,7 @@
 SET "PROJECTDIR=E:\2024 Projects\DayZ Projects\DayZ-Project-Template"
 SET "GAMEDIR=C:\Program Files (x86)\Steam\steamapps\common\DayZ"
 :: These mods are mods you use on all your servers.  Could be a server pack, or whatever. 
-CALL "%PROJECTDIR%\Utils\Globals.bat"
+CALL "%PROJECTDIR%\Utils\Batch\Shared\Globals.bat"
 :: These mods are specific only to this server instanace. 
 SET "MODS=P:\Mods\Mod-Name;"
 
