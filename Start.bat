@@ -35,7 +35,6 @@ if /i "%USERCONFIRM%" neq "Y" (
     echo.
     powershell -Command "Write-Host 'SET PROJECTDIR to: !NEWPROJECTDIR! in Global.cfg ' -ForegroundColor Cyan"
 ) else (
-    :: User declined, so use the detected directory
     SET "NEWPROJECTDIR=%DETECTEDDIR%"
     echo.
     powershell -Command "Write-Host 'SET PROJECTDIR to: !NEWPROJECTDIR! in Global.cfg ' -ForegroundColor Blue"
@@ -50,14 +49,22 @@ if "%NEWPROJECTDIR:~-1%"=="\" (
 SET "TEMPCFGFILE=%TEMP%\temp_globals.cfg"
 if exist "%TEMPCFGFILE%" del "%TEMPCFGFILE%"
 
-:: Update the Globals.cfg file with the new PROJECTDIR
 (for /f "tokens=1* delims==" %%i in (./Utils/Shared/Globals.cfg) do (
     if "%%i"=="PROJECTDIR" (
         echo PROJECTDIR=!NEWPROJECTDIR!>> "%TEMPCFGFILE%"
     ) else (
-        echo %%i=%%j>> "%TEMPCFGFILE%"
+        for /f "delims=" %%a in ("%%i") do (
+            set "line=%%a"
+            if "!line:~0,1!"=="#" (
+                echo %%a>> "%TEMPCFGFILE%"
+            ) else (
+                echo %%i=%%j>> "%TEMPCFGFILE%"
+            )
+        )
     )
 )) >nul
+
+
 
 :: Replace the original Globals.cfg with the updated one
 move /y "%TEMPCFGFILE%" "./Utils/Shared/Globals.cfg" >nul
