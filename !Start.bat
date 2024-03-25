@@ -20,9 +20,9 @@ echo.
 echo This should be the directory where you downloaded, or cloned the dayz-project-template from GitHub.
 powershell -Command  "Write-Host 'PROJECT DIRECTORY:' -ForegroundColor DarkMagenta -NoNewline; Write-Host ' %DETECTEDDIR%' -ForegroundColor Cyan;"
 
-@REM :: Define the message string
+:: Define the message string
 SET "MESSAGE=Please verify that this is your Project's Location?"
-@REM :: Display the message with parentheses in yellow using PowerShell
+:: Display the message with parentheses in yellow using PowerShell
 echo.
 powershell -Command "$message = 'Please verify that this is your Project''s location listed above?'; Write-Host -ForegroundColor Yellow -NoNewline $message; Write-Host ' (Y/N)' -NoNewline;"
 
