@@ -60,3 +60,5 @@ move /y "%TEMPCFGFILE%" "./Utils/Shared/Globals.cfg" >nul
 powershell -Command "Write-Host 'PROJECTDIR updated successfully.' -ForegroundColor Green"
 echo. 
 powershell -Command "Write-Host 'Setup is Complete.' -ForegroundColor Green"
+timeout /t 5 /nobreak 
+exit
