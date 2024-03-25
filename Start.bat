@@ -64,8 +64,6 @@ if exist "%TEMPCFGFILE%" del "%TEMPCFGFILE%"
     )
 )) >nul
 
-
-
 :: Replace the original Globals.cfg with the updated one
 move /y "%TEMPCFGFILE%" "./Utils/Shared/Globals.cfg" >nul
 
