@@ -1,4 +1,4 @@
-Thank you for using our DayZ n' Chill's Dev Tools
+Thank you for using DayZ n' Chill's Dev Tools
 
  ____          _____           _____ _   _ _ _ 
 |    \ ___ _ _|__   |   ___   |     | |_|_| | |

@@ -1,3 +1,9 @@
+@echo off
+setlocal
+:: Load variables from Globals.cfg, set them with values quoted, and echo the command
+for /f "tokens=1* delims== eol=#" %%i in (..\..\Utils\Shared\Globals.cfg) do (
+    set "%%i=%%j"
+)
 :: ====================================================================================================================
 ::  DayZ Mod Manager & Server Launcher by: DayZ n' Chill v2.0
 :: ====================================================================================================================
@@ -10,14 +16,17 @@
 ::  as well as https://community.bistudio.com/wiki/DayZ:Workbench_Script_Debugging 
 
 :: ====================================================================================================================
-::  User Configuration
+::  Server Mod Configuration
 :: ====================================================================================================================
-SET "PROJECTDIR=E:\2024 Projects\DayZ Projects\DayZ-Project-Template"
-SET "GAMEDIR=C:\Program Files (x86)\Steam\steamapps\common\DayZ"
-:: These mods are mods you use on all your servers.  Could be a server pack, or whatever. 
-CALL "%PROJECTDIR%\Utils\Batch\Shared\Globals.bat"
 :: These mods are specific only to this server instanace. 
-SET "MODS=P:\Mods\Mod-Name;"
+SET "MODS=P:\Mod-Name;"
+
+echo GAMEDIR: %GAMEDIR%
+echo WORKDIR: %WORKDIR%
+echo PROJECTDIR: %PROJECTDIR%
+echo PDRIVE: %PDRIVE%
+echo MODDIR: %MODDIR% 
+echo MODS: %MODS%
 
 :: ====================================================================================================================
 ::  Cherno Specific Variables.  
@@ -36,6 +45,6 @@ SET "PROFILES=%PROJECTDIR%\Servers\Cherno\Profiles"
 ::  BUT AGAIN, NO NEED TO MODIFY ANYTHING ELSE, UNLESS YOU KNOW WHAT YOU'RE DOING!!!
 :: ====================================================================================================================
 :: Start Cherno server.
-start /D "%GAMEDIR%\" DayZDiag_x64.exe "-mod=%GLOBALMODS%%MODS%" -filePatching -server "-profiles=%PROFILES%" "-mission=%MISSIONDIR%" "-config=%SERVERCFG%" 
+start /D "%GAMEDIR%\" DayZDiag_x64.exe "-mod=%GLOBALMODS%%MODS%" -filePatching -server "-profiles=%PROFILES%" -mission=%MISSIONDIR% "-config=%SERVERCFG%" 
 :: Play on local server.
-start /D "%GAMEDIR%\" DayZDiag_x64.exe "-profiles=%CLIENTLOGSDIR%" "-mod=%GLOBALMODS%%MODS%" -filePatching -connect=127.0.0.1 -port=2302 
+@REM start /D "%GAMEDIR%\" DayZDiag_x64.exe "-profiles=%CLIENTLOGSDIR%" "-mod=%GLOBALMODS%%MODS%" -filePatching -connect=127.0.0.1 -port=2302 
