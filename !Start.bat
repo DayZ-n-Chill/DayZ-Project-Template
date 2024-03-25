@@ -41,18 +41,23 @@ if /i "%USERCONFIRM%" neq "Y" (
     powershell -Command "Write-Host 'SET PROJECTDIR to: !NEWPROJECTDIR! in Global.cfg ' -ForegroundColor Blue"
 )
 
+:: Remove trailing backslash from PROJECTDIR if it exists
+if "%NEWPROJECTDIR:~-1%"=="\" (
+    SET "NEWPROJECTDIR=%NEWPROJECTDIR:~0,-1%"
+)
+
 :: Create a temporary file for the updated configuration
 SET "TEMPCFGFILE=%TEMP%\temp_globals.cfg"
 if exist "%TEMPCFGFILE%" del "%TEMPCFGFILE%"
 
 :: Update the Globals.cfg file with the new PROJECTDIR
-for /f "tokens=1* delims==" %%i in (./Utils/Shared/Globals.cfg) do (
+(for /f "tokens=1* delims==" %%i in (./Utils/Shared/Globals.cfg) do (
     if "%%i"=="PROJECTDIR" (
-        echo PROJECTDIR=!NEWPROJECTDIR! >> "%TEMPCFGFILE%"
+        echo PROJECTDIR=!NEWPROJECTDIR!>> "%TEMPCFGFILE%"
     ) else (
-        echo %%i=%%j >> "%TEMPCFGFILE%"
+        echo %%i=%%j>> "%TEMPCFGFILE%"
     )
-)
+)) >nul
 
 :: Replace the original Globals.cfg with the updated one
 move /y "%TEMPCFGFILE%" "./Utils/Shared/Globals.cfg" >nul

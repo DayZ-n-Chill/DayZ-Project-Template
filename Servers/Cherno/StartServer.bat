@@ -22,6 +22,13 @@ for /f "tokens=1* delims== eol=#" %%i in (..\..\Utils\Shared\Globals.cfg) do (
     set "%%i=%%j"
 )
 
+echo GAMEDIR: %GAMEDIR%
+echo WORKDIR: %WORKDIR%
+echo PROJECTDIR: %PROJECTDIR%
+echo PDRIVE: %PDRIVE%
+echo MODDIR: %MODDIR%
+echo GLOBALMODS: %GLOBALMODS%
+
 :: ====================================================================================================================
 ::  Server Specific Configuration: 
 :: ====================================================================================================================
