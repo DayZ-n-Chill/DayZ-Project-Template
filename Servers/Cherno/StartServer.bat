@@ -28,14 +28,14 @@ for /f "tokens=1* delims== eol=#" %%i in (..\..\Utils\Shared\Globals.cfg) do (
 
 ::  The Mods Section below are for mods that are specific to this server only. If you want to test with multiple maps,
 ::  and or servers, you will need to edit the globals.cfg in the Util/Shared folder.
-SET "MODS=P:\Mod-Name;"
+SET "MODS=P:\Mods\Mod-Name;"
 
 :: ====================================================================================================================
 ::  NO NEED TO MODIFY ANYTHING ELSE, UNLESS YOU KNOW WHAT YOU'RE DOING!!!
 :: ====================================================================================================================
+SET "CLIENTLOGSDIR=%PROJECTDIR%\Servers\!ClientDiagLogs"
 SET "MISSIONDIR=%PROJECTDIR%\Missions\Vanilla\dayzOffline.chernarusplus"
 SET "EXPMISSIONDIR=%PROJECTDIR%\Missions\Experimental\dayzOffline.chernarusplus"
-SET "CLIENTLOGSDIR=%PROJECTDIR%\Servers\!ClientDiagLogs"
 SET "SERVERCFG=%PROJECTDIR%\Servers\Cherno\serverDZ.cfg"
 SET "PROFILES=%PROJECTDIR%\Servers\Cherno\Profiles"
 

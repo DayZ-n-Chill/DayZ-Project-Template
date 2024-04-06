@@ -1,5 +1,5 @@
 @echo off
-CALL cd ../../../servers/
+cd ../../../Servers/
 del *.log /s /f
 del *rpt /s /f
 del *mdmp /s /f
