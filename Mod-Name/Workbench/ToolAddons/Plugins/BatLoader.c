@@ -27,34 +27,16 @@ class DayZTool: WorkbenchPlugin
 		
 		string path = filepath.Substring(0, last_index);
 		string bat = filepath.Substring(last_index + 1, filepath.Length() - last_index - 1);
-		/*Print(filepath);
-		Print(path);
-		Print(bat);*/
-		// Made it so that you can access other drives. 
+	
 		Workbench.RunCmd("cmd /c \"chdir /D " + path + " & call " + bat + "\"", wait);
 	}
-	
+
 	override void Configure() 
 	{
-		Workbench.ScriptDialog("Mission directory","", this);
+		Workbench.ScriptDialog("DayZ n' Chill","", this);
 	}
-	
 	[ButtonAttribute("OK")]
 	void DialogOk()
 	{
 	}
 };
-
-static string g_ModFolder;
-static string ModFolder()
-{
-	g_ModFolder = "P:/Mod-Name/";	
-	return g_ModFolder;
-}
-
-static string g_ServerFolder;
-static string serverFolder()
-{                     
-	g_ServerFolder = "E:/2024 Projects/DayZ Projects/DayZ-Project-Template/";	
-	return g_ServerFolder;
-}
