@@ -1,0 +1,110 @@
+=====================================================================
+== C:\Program Files (x86)\Steam\steamapps\common\DayZ\DayZDiag_x64.exe
+== "C:\Program "-mod=P:\Mods\@CF;P:\Mods\@Dabs Framework;P:\Mods\@Community-Online-Tools;P:\Mods\@Empty Map;" -filePatching -server "-profiles=E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Servers\Others\Empty\Profiles" "-mission=E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness" "-config=E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Servers\Others\Empty\serverDZ.cfg" 
+=====================================================================
+Exe timestamp: 2024/03/21 15:54:13
+Current time:  2024/04/06 20:04:51
+Version 1.24.157623
+=====================================================================
+
+20:04:51.777 [Inputs] Loading inputs default "bin/constants.xml"
+20:04:51.780 [Inputs] Loading inputs default "bin/specific.xml"
+20:04:51.781 [Inputs] Loading inputs default "JM/COT/Scripts/Data/Inputs.xml"
+20:04:51.783 [Inputs] Loading inputs cfg "E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Servers\Others\Empty\Profiles\Users\Survivor\Server.core.xml"
+20:04:51.786 [Inputs] Exporting inputs cfg "E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Servers\Others\Empty\Profiles\Users\Survivor\Server.core.xml"
+20:05:03.347 [CE][Hive] :: Initializing OFFLINE
+20:05:03.347 [StorageDirs] :: Selected storage directory: E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\
+20:05:03.348 [CE][Hive] :: Loading core data ... 
+20:05:03.348 [CE][CoreData] :: 7 root classes, 18 defaults, 0 updaters...
+20:05:03.374 [CE][offlineDB] :: Conversion of characters started.
+20:05:03.389 [CE][offlineDB] :: Processing 0 players.
+20:05:03.389 [CE][offlineDB] :: Conversion of characters successfully completed.
+20:05:06.689 [CE] :: WARNING :: Preset map "optics" is EMPTY.
+20:05:06.689 [CE][TypeSetup] :: 0 classes setuped...
+20:05:06.865 [CE][RegisterBind] :: 0 classes binded...
+20:05:06.866 [CE][RegisterConfig] :: 5003 config classes registered, 0 sub-counters...
+20:05:06.866 [CE][Hive] :: Loading map data ... 
+20:05:06.866 [CE][IgnoreList] "cfgignorelist.xml" :: loaded 19 types
+20:05:06.867 !!! [CE] :: Failed to parse categories from file.
+20:05:06.867 !!! [CE] :: Failed to parse tags from file.
+20:05:06.867 !!! [CE] :: Failed to parse usageflags from file.
+20:05:06.867 !!! [CE] :: Failed to parse valueflags from file.
+20:05:06.867 [CE][LoadPrototype] :: loaded 0 prototypes
+20:05:06.867   0 containers, 0 points
+20:05:06.867   0 dispatches, 0 proxies
+20:05:06.867 [CE][LoadPrototype] :: loaded 0 prototypes
+20:05:06.867   0 containers, 0 points
+20:05:06.867   0 dispatches, 0 proxies
+20:05:07.474 [CE][LoadMap] "Group" :: loaded 0 groups, groups failed: 0, largest group range: 0.0
+20:05:07.475 [CE][LoadMap] "Dirt" :: loaded 0 groups, groups failed: 0, largest group range: 0.0
+20:05:07.475 [CE][Links] found 0 total links between groups, of 0
+20:05:07.475 [CE][LoadClusters] "Cluster" :: Loading files...
+20:05:07.475 [CE][LoadClusters] :: file: "mapgroupcluster.xml", 0 types, 0 instances
+20:05:07.475 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\types.bin"
+20:05:07.475 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\types.001"
+20:05:07.475 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\types.002"
+20:05:07.475 !!! [CE][offlineDB] :: No Shutdown message present.
+20:05:07.476 [CE][offlineDB] :: Loaded 0 dynamic events 0 total types.
+20:05:07.487 [CE][DE][SPAWNS] :: Total positions: 0
+20:05:07.487 [CE][DE][GROUPS] :: Total eventgroups defined: 0, Eventgroups in use: 0
+20:05:07.487 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\events.bin"
+20:05:07.487 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\events.001"
+20:05:07.488 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\events.002"
+20:05:07.488 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_000.bin"
+20:05:07.488 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_000.001"
+20:05:07.488 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_000.002"
+20:05:07.488 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_001.bin"
+20:05:07.488 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_001.001"
+20:05:07.488 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_001.002"
+20:05:07.488 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_002.bin"
+20:05:07.488 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_002.001"
+20:05:07.488 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_002.002"
+20:05:07.488 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_003.bin"
+20:05:07.489 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_003.001"
+20:05:07.489 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_003.002"
+20:05:07.489 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_004.bin"
+20:05:07.489 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_004.001"
+20:05:07.489 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_004.002"
+20:05:07.489 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_005.bin"
+20:05:07.489 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_005.001"
+20:05:07.489 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_005.002"
+20:05:07.489 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_006.bin"
+20:05:07.489 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_006.001"
+20:05:07.489 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_006.002"
+20:05:07.489 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_007.bin"
+20:05:07.489 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_007.001"
+20:05:07.489 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_007.002"
+20:05:07.490 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_008.bin"
+20:05:07.490 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_008.001"
+20:05:07.490 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_008.002"
+20:05:07.490 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_009.bin"
+20:05:07.490 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_009.001"
+20:05:07.490 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_009.002"
+20:05:07.490 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_010.bin"
+20:05:07.490 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_010.001"
+20:05:07.490 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_010.002"
+20:05:07.490 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_011.bin"
+20:05:07.490 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_011.001"
+20:05:07.490 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\dynamic_011.002"
+20:05:07.490 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\building.bin"
+20:05:07.491 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\building.001"
+20:05:07.491 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\building.002"
+20:05:07.491 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\vehicles.bin"
+20:05:07.491 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\vehicles.001"
+20:05:07.491 [CE][Storage] ver:0 stamp:0, valid:NO, name:"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\storage_1\data\vehicles.002"
+20:05:07.491 [CE][Hive] :: Empty storage folder, reinitializing ... 
+20:05:07.493 [CE][Hive] :: Initializing ... 
+20:05:07.495 [CE][InitializeMap] :: initialized: 0
+20:05:07.495 [CE][Hive] :: Initializing spawners ... 
+20:05:07.495 [CE][DynEvent] :: 0 types
+20:05:07.495 [CE][Hive] :: Initializing of spawners done.
+20:05:07.495 [CE][Hive] :: Init sequence finished.
+20:05:07.495 Player connect enabled
+20:05:07.497 [Login]: Adding player Survivor (14695668) to login queue at position 0
+20:05:07.497 [LoginMachine]: Add player Survivor (14695668 127.0.0.1:2316)
+20:05:07.497 [StateMachine]: Player Survivor (dpnid 14695668 uid ) Entering AuthPlayerLoginState
+20:05:07.526 [StateMachine]: Player Survivor (dpnid 14695668 uid ) Entering WaitAuthPlayerLoginState
+20:05:08.871 Player Survivor connected (id=flFK7sJJZc_jyUehTQ7EuyYMjKKFuxLeq80MiKOlHTY=).
+20:05:08.871 Player "Survivor" is connected (steamID=76561197969255905)
+20:05:08.871 [StateMachine]: Player Survivor (dpnid 14695668 uid ) Entering WaitPlayerAssignedLoginState
+20:05:09.324 [StateMachine]: Player Survivor (dpnid 14695668 uid flFK7sJJZc_jyUehTQ7EuyYMjKKFuxLeq80MiKOlHTY=) Entering DBGetLoginTimeLoginState

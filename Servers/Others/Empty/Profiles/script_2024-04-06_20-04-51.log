@@ -1,0 +1,25 @@
+---------------------------------------------
+Log E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Servers\Others\Empty\Profiles\script_2024-04-06_20-04-51.log started at 06.04. 20:04:51
+
+SCRIPT       : Registered 334 temporary action enum(s), UAN==334
+SCRIPT       : ... Backlit Effects Enabled
+SCRIPT       : string s =    'Module PluginConfigDebugProfile is not Registred in PluginManager.c!'
+SCRIPT    (E):    -- Stack trace --
+SCRIPT    (E):    GetPlugin() scripts/4_World/plugins\pluginmanager.c : 330
+SCRIPT    (E):    OnInit() scripts/4_World/plugins\pluginbase\pluginitemdiagnostic.c : 104
+SCRIPT    (E):    PluginsInit() scripts/4_World/plugins\pluginmanager.c : 126
+SCRIPT    (E):    PluginManagerInit() scripts/4_World/plugins\pluginmanager.c : 293
+SCRIPT    (E):    MissionBase@195#1() scripts/5_Mission/mission\missionbase.c : 19
+SCRIPT    (E):    CreateCustomMission() E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\Empty\empty.fenix_emptiness\init.c : 87
+SCRIPT    (E):    -----------------
+SCRIPT       : Is player selected? false
+SCRIPT       : Is OnSelectPlayer temporarily disabled? false
+SCRIPT       : 04-06 20:05:41 | Server | Debug | Connect | n/a | n/a | InvokeOnConnect:CustomMission<2c0095f0>
+SCRIPT       : 04-06 20:05:41 | Server | Debug | Connect | n/a | n/a | Player connected:SurvivorBase<438e25c0>
+SCRIPT       : [DF][DEBUG][EventManager]: Sending In Progress info to SurvivorBase<438e25c0>
+SCRIPT       : [Logout]: New player flFK7sJJZc_jyUehTQ7EuyYMjKKFuxLeq80MiKOlHTY= with logout time 15
+SCRIPT       : 04-06 20:06:16 | Server | Debug | Connect | n/a | n/a | InvokeOnDisconnect:CustomMission<2c0095f0>
+SCRIPT       : 04-06 20:06:16 | Server | Debug | Connect | n/a | n/a | Player disconnected:SurvivorBase<438e25c0>
+SCRIPT       : [Logout]: Player flFK7sJJZc_jyUehTQ7EuyYMjKKFuxLeq80MiKOlHTY= finished
+SCRIPT       : 04-06 20:06:16 | Server | Debug | n/a | n/a | n/a | Player SurvivorBase<438e25c0> saved as alive
+SCRIPT       : ~DayZGame()

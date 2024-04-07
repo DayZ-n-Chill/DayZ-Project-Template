@@ -18,7 +18,7 @@ SETLOCAL
 :: ====================================================================================================================
 
 :: Load variables from Globals.cfg and set them with quoted values
-for /f "tokens=1* delims== eol=#" %%i in (..\..\Utils\Shared\Globals.cfg) do (
+for /f "tokens=1* delims== eol=#" %%i in (..\..\Utils\Shared\Globals.cfg)  do (
     set "%%i=%%j"
 )
 
