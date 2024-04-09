@@ -1,0 +1,181 @@
+{
+    "Types": [
+        "",
+        "",
+        "Hill",
+        "Local",
+        "Marine"
+    ],
+    "Locations": [
+        {
+            "Type": "Hill",
+            "Name": "Arpoador",
+            "Position": [
+                3538.06005859375,
+                0.0,
+                1171.4300537109376
+            ],
+            "Radius": 4.0
+        },
+        {
+            "Type": "Hill",
+            "Name": "BUNKER",
+            "Position": [
+                796.4099731445313,
+                0.0,
+                5880.25
+            ],
+            "Radius": 4.0
+        },
+        {
+            "Type": "Hill",
+            "Name": "Botafogo",
+            "Position": [
+                4745.10986328125,
+                0.0,
+                5082.83984375
+            ],
+            "Radius": 4.0
+        },
+        {
+            "Type": "Local",
+            "Name": "Copacabana",
+            "Position": [
+                4757.83984375,
+                0.0,
+                3535.639892578125
+            ],
+            "Radius": 4.0
+        },
+        {
+            "Type": "Local",
+            "Name": "Cristo Redentor",
+            "Position": [
+                914.25,
+                0.0,
+                5662.35009765625
+            ],
+            "Radius": 4.0
+        },
+        {
+            "Type": "Local",
+            "Name": "Favela Canta-Galo",
+            "Position": [
+                3103.02001953125,
+                0.0,
+                1883.3900146484376
+            ],
+            "Radius": 4.0
+        },
+        {
+            "Type": "Local",
+            "Name": "Forte de Copacabana",
+            "Position": [
+                3693.52001953125,
+                0.0,
+                1426.1800537109376
+            ],
+            "Radius": 4.0
+        },
+        {
+            "Type": "Hill",
+            "Name": "Hipodrómo da Gávea",
+            "Position": [
+                432.19000244140627,
+                0.0,
+                2833.0
+            ],
+            "Radius": 4.0
+        },
+        {
+            "Type": "Local",
+            "Name": "Humaíta",
+            "Position": [
+                3001.090087890625,
+                0.0,
+                5417.83984375
+            ],
+            "Radius": 4.0
+        },
+        {
+            "Type": "Local",
+            "Name": "Ilha Caiçaras",
+            "Position": [
+                1379.469970703125,
+                0.0,
+                2180.010009765625
+            ],
+            "Radius": 4.0
+        },
+        {
+            "Type": "Local",
+            "Name": "Ipanema",
+            "Position": [
+                2592.1298828125,
+                0.0,
+                1613.469970703125
+            ],
+            "Radius": 4.0
+        },
+        {
+            "Type": "Local",
+            "Name": "Jardim Botânico",
+            "Position": [
+                909.719970703125,
+                0.0,
+                3904.239990234375
+            ],
+            "Radius": 4.0
+        },
+        {
+            "Type": "Local",
+            "Name": "Lagoa Rodrigo de Freitas",
+            "Position": [
+                1478.4100341796876,
+                0.0,
+                3051.570068359375
+            ],
+            "Radius": 4.0
+        },
+        {
+            "Type": "Local",
+            "Name": "Leblon",
+            "Position": [
+                547.5900268554688,
+                0.0,
+                1555.52001953125
+            ],
+            "Radius": 4.0
+        },
+        {
+            "Type": "Local",
+            "Name": "Morro da Babilônia",
+            "Position": [
+                5670.14013671875,
+                0.0,
+                4221.93017578125
+            ],
+            "Radius": 4.0
+        },
+        {
+            "Type": "Marine",
+            "Name": "Praia Vermelha",
+            "Position": [
+                6307.6298828125,
+                0.0,
+                4792.5
+            ],
+            "Radius": 4.0
+        },
+        {
+            "Type": "",
+            "Name": "Urca ( Pão de Açucar)",
+            "Position": [
+                6348.66015625,
+                0.0,
+                5258.22998046875
+            ],
+            "Radius": 4.0
+        }
+    ]
+}

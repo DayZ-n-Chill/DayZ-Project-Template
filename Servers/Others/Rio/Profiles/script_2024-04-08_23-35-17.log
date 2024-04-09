@@ -1,0 +1,45 @@
+---------------------------------------------
+Log E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Servers\Others\Rio\Profiles\script_2024-04-08_23-35-17.log started at 08.04. 23:35:17
+
+SCRIPT       : Registered 334 temporary action enum(s), UAN==334
+SCRIPT       : ... Backlit Effects Enabled
+SCRIPT    (W): @"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\dayzOffline.Rio_Map\init.c,66": Missing ';' at the end of line
+SCRIPT    (W): @"E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\dayzOffline.Rio_Map\init.c,142": Unsafe down-casting, use 'ItemBase.Cast' for safe down-casting
+SCRIPT       : string s =    'Module PluginConfigDebugProfile is not Registred in PluginManager.c!'
+SCRIPT    (E):    -- Stack trace --
+SCRIPT    (E):    GetPlugin() scripts/4_World/plugins\pluginmanager.c : 330
+SCRIPT    (E):    OnInit() scripts/4_World/plugins\pluginbase\pluginitemdiagnostic.c : 104
+SCRIPT    (E):    PluginsInit() scripts/4_World/plugins\pluginmanager.c : 126
+SCRIPT    (E):    PluginManagerInit() scripts/4_World/plugins\pluginmanager.c : 293
+SCRIPT    (E):    MissionBase@195#1() scripts/5_Mission/mission\missionbase.c : 19
+SCRIPT    (E):    CreateCustomMission() E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\dayzOffline.Rio_Map\init.c : 176
+SCRIPT    (E):    -----------------
+SCRIPT    (E): Wrong parameter value
+Class:      'JMTeleportSerialize'
+Function: 'Defaults'
+Stack trace:
+JM/COT/Scripts/5_Mission/communityonlinetools\modules\teleport\jmteleportserialize.c:96
+JM/COT/Scripts/5_Mission/communityonlinetools\modules\teleport\jmteleportserialize.c:40
+JM/COT/Scripts/5_Mission/communityonlinetools\modules\teleport\jmteleportmodule.c:231
+JM/COT/Scripts/5_Mission/communityonlinetools\modules\teleport\jmteleportmodule.c:85
+JM/CF/Scripts/4_World/communityframework\module\deprecated\jmmodulebase.c:105
+JM/CF/Scripts/1_Core/communityframework\module\cf_modulecoreevent.c:73
+JM/CF/Scripts/1_Core/communityframework\module\cf_modulecoremanager.c:171
+JM/CF/Scripts/5_Mission/communityframework\mission\missionserver.c:51
+JM/COT/Scripts/5_Mission/communityonlinetools\missionserver.c:37
+JM/CF/Scripts/5_Mission/communityframework\mission\missionbase.c:30
+JM/CF/Scripts/5_Mission/communityframework\mission\missionserver.c:56
+JM/COT/Scripts/5_Mission/communityonlinetools\missionserver.c:51
+scripts/3_Game/dayzgame.c:2818
+JM/CF/Scripts/3_Game/communityframework\game\dayzgame.c:23
+SCRIPT       : Is player selected? false
+SCRIPT       : Is OnSelectPlayer temporarily disabled? false
+SCRIPT       : 04-08 23:35:55 | Server | Debug | Connect | n/a | n/a | InvokeOnConnect:CustomMission<28f6e790>
+SCRIPT       : 04-08 23:35:55 | Server | Debug | Connect | n/a | n/a | Player connected:SurvivorBase<62e763b0>
+SCRIPT       : [DF][DEBUG][EventManager]: Sending In Progress info to SurvivorBase<62e763b0>
+SCRIPT       : [Logout]: New player flFK7sJJZc_jyUehTQ7EuyYMjKKFuxLeq80MiKOlHTY= with logout time 5
+SCRIPT       : 04-08 23:36:30 | Server | Debug | Connect | n/a | n/a | InvokeOnDisconnect:CustomMission<28f6e790>
+SCRIPT       : 04-08 23:36:30 | Server | Debug | Connect | n/a | n/a | Player disconnected:SurvivorBase<62e763b0>
+SCRIPT       : [Logout]: Player flFK7sJJZc_jyUehTQ7EuyYMjKKFuxLeq80MiKOlHTY= finished
+SCRIPT       : 04-08 23:36:30 | Server | Debug | n/a | n/a | n/a | Player SurvivorBase<62e763b0> saved as alive
+SCRIPT       : ~DayZGame()

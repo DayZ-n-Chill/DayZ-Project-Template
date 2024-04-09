@@ -1,0 +1,28 @@
+---------------------------------------------
+Log E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Servers\Others\Rio\Profiles\crash_2024-04-08_23-35-17.log started at 08.04. 23:35:41
+
+
+
+------------------------------------
+UNICRON, 08.04 2024 23:35:41
+Wrong parameter value
+Class:      'JMTeleportSerialize'
+Function: 'Defaults'
+Stack trace:
+JM/COT/Scripts/5_Mission/communityonlinetools\modules\teleport\jmteleportserialize.c:96
+JM/COT/Scripts/5_Mission/communityonlinetools\modules\teleport\jmteleportserialize.c:40
+JM/COT/Scripts/5_Mission/communityonlinetools\modules\teleport\jmteleportmodule.c:231
+JM/COT/Scripts/5_Mission/communityonlinetools\modules\teleport\jmteleportmodule.c:85
+JM/CF/Scripts/4_World/communityframework\module\deprecated\jmmodulebase.c:105
+JM/CF/Scripts/1_Core/communityframework\module\cf_modulecoreevent.c:73
+JM/CF/Scripts/1_Core/communityframework\module\cf_modulecoremanager.c:171
+JM/CF/Scripts/5_Mission/communityframework\mission\missionserver.c:51
+JM/COT/Scripts/5_Mission/communityonlinetools\missionserver.c:37
+JM/CF/Scripts/5_Mission/communityframework\mission\missionbase.c:30
+JM/CF/Scripts/5_Mission/communityframework\mission\missionserver.c:56
+JM/COT/Scripts/5_Mission/communityonlinetools\missionserver.c:51
+scripts/3_Game/dayzgame.c:2818
+JM/CF/Scripts/3_Game/communityframework\game\dayzgame.c:23
+
+Runtime mode
+CLI params: mod P:\Mods\@CF;P:\Mods\@Dabs Framework;P:\Mods\@Community-Online-Tools;P:\Mods\@Rio Map - Experimental; filePatching  server  profiles E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Servers\Others\Rio\Profiles mission E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Missions\Custom\dayzOffline.Rio_Map config E:\2024 Projects\DayZ Projects\DayZ-Project-Template\Servers\Others\Rio\serverDZ.cfg 
