@@ -1,0 +1,106 @@
+{
+    "Presets": [
+        {
+            "Name": "Default",
+            "Permission": "Default",
+            "Time": 0.0,
+            "PDate": {
+                "Year": 2019,
+                "Month": 5,
+                "Day": 23,
+                "Hour": 12,
+                "Minute": 25
+            },
+            "Storm": {
+                "Density": 0.0,
+                "Threshold": 0.0,
+                "TimeOut": 0.0
+            },
+            "PFog": {
+                "Forecast": 0.10000000149011612,
+                "Time": 100.0,
+                "MinDuration": 100.0
+            },
+            "POvercast": {
+                "Forecast": 0.10000000149011612,
+                "Time": 100.0,
+                "MinDuration": 100.0
+            },
+            "PRain": {
+                "Forecast": 0.10000000149011612,
+                "Time": 100.0,
+                "MinDuration": 100.0
+            },
+            "RainThreshold": {
+                "OvercastMin": 0.0,
+                "OvercastMax": 0.0,
+                "Time": 0.0
+            },
+            "Wind": {
+                "Dir": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Speed": 0.0,
+                "MaxSpeed": 0.0
+            },
+            "WindFunc": {
+                "Min": 0.0,
+                "Max": 0.0,
+                "Speed": 0.0
+            }
+        },
+        {
+            "Name": "Test",
+            "Permission": "Test",
+            "Time": 0.0,
+            "PDate": {
+                "Year": 2019,
+                "Month": 2,
+                "Day": 18,
+                "Hour": 9,
+                "Minute": 5
+            },
+            "Storm": {
+                "Density": 0.0,
+                "Threshold": 0.0,
+                "TimeOut": 0.0
+            },
+            "PFog": {
+                "Forecast": 0.10000000149011612,
+                "Time": 100.0,
+                "MinDuration": 100.0
+            },
+            "POvercast": {
+                "Forecast": 0.10000000149011612,
+                "Time": 100.0,
+                "MinDuration": 100.0
+            },
+            "PRain": {
+                "Forecast": 0.10000000149011612,
+                "Time": 100.0,
+                "MinDuration": 100.0
+            },
+            "RainThreshold": {
+                "OvercastMin": 0.05000000074505806,
+                "OvercastMax": 1.0,
+                "Time": 5.0
+            },
+            "Wind": {
+                "Dir": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Speed": 0.0,
+                "MaxSpeed": 0.0
+            },
+            "WindFunc": {
+                "Min": 0.0,
+                "Max": 0.0,
+                "Speed": 0.0
+            }
+        }
+    ]
+}
