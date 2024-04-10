@@ -1,23 +1,24 @@
 @echo off
 SETLOCAL
-type .\Batch\Logo\devlogo.txt
-echo.
-echo Starting Build and Launch Process...
-IF EXIST "C:\Program Files (x86)\Steam\steamapps\common\DayZ\!Workshop" (
-    powershell -Command "Write-Host 'C:\Program Files (x86)\Steam\steamapps\common\DayZ\!Workshop exists.' -ForegroundColor Yellow"
-    powershell -Command "Write-Host 'Building Mods to workshop folder on C Drive' -ForegroundColor DarkCyan"
+
+@REM Set paths to tools and directories
+SET MakePboPath="C:\Program Files (x86)\Mikero\DePboTools\bin\MakePbo.exe"
+SET AddonBuilderPath="C:\Program Files (x86)\Steam\steamapps\common\DayZ Tools\Bin\AddonBuilder\AddonBuilder.exe"
+
+SET ClientSource="P:\Colorful-UI"
+SET ClientOutput="P:\Mods\@Colorful-UI\Addons"
+
+@REM Run AddonBuilder to pack the mod files
+%AddonBuilderPath% %ClientSource% %ClientOutput% -packonly -clear
+
+@REM Check the exit code of AddonBuilder
+IF %ERRORLEVEL% NEQ 0 (
+    powershell -Command "Write-Host 'Error: Mod build failed!' -ForegroundColor Red"
     pause
-    call .\Batch\Build\BuildMods_C.bat
+    exit /b %ERRORLEVEL%
 ) ELSE (
-    IF EXIST "D:\SteamLibrary\steamapps\common\DayZ\!Workshop" (
-        powershell -Command "Write-Host 'D:\SteamLibrary\steamapps\common\DayZ\!Workshop exists.' -ForegroundColor Yellow"
-        powershell -Command "Write-Host 'Building Mods to workshop folder on the D Drive.' -ForegroundColor DarkCyan"
-    ) ELSE (
-        powershell -Command "Write-Host 'D:\SteamLibrary\steamapps\common\DayZ\!Workshop does not exists.' -ForegroundColor Red"
-        pause
-        call .\Batch\Build\BuildMods_D.bat
-        pause
-        exit
-    )
+    powershell -Command "Write-Host 'All mods have been built from the C Drive.' -ForegroundColor Green"
+    powershell -Command "Write-Host 'Please check your local server to verify.' -ForegroundColor DarkYellow"
+    timeout /t 5 /nobreak
+    exit
 )
-ENDLOCAL
