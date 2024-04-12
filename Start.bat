@@ -2,7 +2,7 @@
 SETLOCAL EnableDelayedExpansion
 
 :: Show the DayZ n Chill Dev Logo.
-SET "ASCIIARTPATH=.\Utils\Shared\dznc.txt"
+SET "ASCIIARTPATH=.\Utils\Shared\Branding.txt"
 SET "COLORS=Blue,Green,Cyan,DarkBlue,DarkGreen,DarkCyan"
 powershell -Command "$colors = '%COLORS%'.Split(','); $randomColor = Get-Random -InputObject $colors; $content = Get-Content -Path '%ASCIIARTPATH%'; $content | ForEach-Object {Write-Host $_ -ForegroundColor $randomColor}"
 
