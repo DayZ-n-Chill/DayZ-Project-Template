@@ -1,12 +1,13 @@
 @echo off
 SETLOCAL
 :: Load variables from Globals.cfg and set them with quoted values
-for /f "tokens=1* delims== eol=#" %%i in (..\..\..\Utils\Shared\Globals.cfg) do (
-    set "%%i=%%j"
-)
+:: Uncomment the below code if you plan to run this on your own and not just with the start.bat
+:: for /f "tokens=1* delims== eol=#" %%i in (..\..\Shared\Globals.cfg) do (
+::     set "%%i=%%j"
+:: )
 
 REM Check if the P drive is mounted
-IF NOT EXIST "P:\" (
+IF NOT EXIST "%PDRIVE%" (
     powershell -Command "Write-Host 'WARNING: The P drive is not mounted. Please ensure it is mounted before continuing.' -ForegroundColor Red"
     pause
     exit /b
@@ -34,3 +35,4 @@ IF ERRORLEVEL 1 (
 
 ENDLOCAL
 pause
+

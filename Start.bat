@@ -1,6 +1,10 @@
 @echo off
 SETLOCAL EnableDelayedExpansion
 
+for /f "tokens=1* delims== eol=#" %%i in (.\Utils\Shared\Globals.cfg) do (
+    set "%%i=%%j"
+)
+
 :: Show the DayZ n Chill Dev Logo.
 SET "ASCIIARTPATH=.\Utils\Shared\Branding.txt"
 SET "COLORS=Blue,Green,Cyan,DarkBlue,DarkGreen,DarkCyan"
@@ -69,6 +73,9 @@ move /y "%TEMPCFGFILE%" "./Utils/Shared/Globals.cfg" >nul
 echo. 
 powershell -Command "Write-Host 'PROJECTDIR updated successfully.' -ForegroundColor Green"
 echo. 
+
+call .\Utils\Batch\Setup\WorkshopSymlink.Bat
+
 powershell -Command "Write-Host 'Setup is Complete.' -ForegroundColor Green"
 timeout /t 5 /nobreak 
 exit
