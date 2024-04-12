@@ -27,10 +27,13 @@ mklink /J "%MODDIR%" "%WORKDIR%"
 
 REM Check if the junction was created successfully
 IF ERRORLEVEL 1 (
-    powershell -Command "Write-Host 'SUCCESS: P:\Mods\ already exists, Carry On!' -ForegroundColor Green"
+    powershell -Command "Write-Host 'SUCCESS:' -ForegroundColor Green -NoNewline; Write-Host ' P:\Mods\' -ForegroundColor Cyan -NoNewline; Write-Host ' already exists, Carry On!' -ForegroundColor Green -NoNewline;"
+    echo. 
+
 ) ELSE (
+    echo.
     powershell -Command "Write-Host 'Junction created successfully.' -ForegroundColor Green"
-    echo Workshop mods are linked to "%MODDIR%" on the P drive.
+    powershell -Command "Write-Host 'Workshop mods are linked to' -ForegroundColor Green -NoNewline; Write-Host ' "%MODDIR%" ' -ForegroundColor Cyan -NoNewline; Write-Host 'on the P drive.' -ForegroundColor Green;"
 )
 
 ENDLOCAL
