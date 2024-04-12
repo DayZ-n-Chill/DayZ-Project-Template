@@ -8,7 +8,7 @@ SETLOCAL
 
 REM Check if the P drive is mounted
 IF NOT EXIST "%PDRIVE%" (
-    powershell -Command "Write-Host 'WARNING: The P drive is not mounted. Please ensure it is mounted before continuing.' -ForegroundColor Red"
+    powershell -Command "Write-Host 'WARNING: The P drive is not mounted. Please ensure it is mounted and restart the setup.' -ForegroundColor Red"
     pause
     exit /b
 )
