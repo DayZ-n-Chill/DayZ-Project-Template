@@ -6,7 +6,7 @@ SET "ASCIIARTPATH=.\Utils\Shared\Branding.txt"
 SET "COLORS=Blue,Green,Cyan,DarkBlue,DarkGreen,DarkCyan"
 powershell -Command "$colors = '%COLORS%'.Split(','); $randomColor = Get-Random -InputObject $colors; $content = Get-Content -Path '%ASCIIARTPATH%'; $content | ForEach-Object {Write-Host $_ -ForegroundColor $randomColor}"
 
-:: Start Setup
+:: Begin DayZ Project Manager Setup
 echo This setup file will help you configure your project with ease so you should only have to do this once. 
 echo Please follow along with the prompts and you will be ready to go in no time at all. 
 echo.
@@ -22,7 +22,6 @@ powershell -Command  "Write-Host 'This should be the directory where you downloa
 
 :: Define the message string
 SET "MESSAGE=Please verify that this is your Project's Location?"
-:: Display the message with parentheses in yellow using PowerShell
 echo.
 powershell -Command "$message = 'Please verify that this is your Project''s location listed above?'; Write-Host -ForegroundColor Yellow -NoNewline $message; Write-Host ' (Y/N)' -NoNewline;"
 

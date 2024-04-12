@@ -1,3 +1,8 @@
+:: NOTE :: Was thinking about having the system detect it,
+:: and this works but I feel the globals and asking in the startup 
+:: makes it more direct and easier for the user.  
+:: But I will leave this here for possible future reference. 
+
 @echo off
 setlocal EnableDelayedExpansion
 
@@ -12,7 +17,7 @@ set "DayZDir=!SteamPath!/steamapps/common/DayZ"
 
 :: Check if DayZ is installed in the default directory
 if exist "!DayZDir!" (
-    echo Found DayZ at: !DayZDir!
+    powershell -Command  "Write-Host 'DayZ Installaion Found!' -ForegroundColor Green;"
     goto DisplayPath
 ) else (
     echo Checking additional library folders...
@@ -29,7 +34,7 @@ if exist "!DayZDir!" (
         :: Check if DayZ is in this library folder
         if exist "!libPath!\steamapps\common\DayZ" (
             set "DayZDir=!libPath!\steamapps\common\DayZ"
-            echo Found DayZ at: !DayZDir!
+            powershell -Command  "Write-Host 'DayZ Installaion Found!' -ForegroundColor Green;"
             goto DisplayPath
         )
     )
@@ -39,8 +44,9 @@ if exist "!DayZDir!" (
 
 :DisplayPath
 :: Output the installation directory
-echo Installation Directory: !DayZDir!
+powershell -Command  "Write-Host 'Installation Directory:' -ForegroundColor DarkMagenta -NoNewline; Write-Host ' !DayZDir!' -ForegroundColor Cyan;"
 
 :EndScript
+echo.
 pause
 endlocal

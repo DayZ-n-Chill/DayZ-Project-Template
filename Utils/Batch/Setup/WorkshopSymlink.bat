@@ -1,13 +1,9 @@
 @echo off
 SETLOCAL
-REM This script will create a junction to the Workshop directory on the P drive
-REM You just need to  to provide the path to the Workshop directory.
-SET "WorkshopDir=C:\Program Files (x86)\Steam\steamapps\common\DayZ\!Workshop"
-
-REM Symlink your !Workshop directory to your P drive
-REM This give the .BAT file access to the hidden !workshop folder. 
-REM (Dont modify this folder.)
-SET "MODDIR=P:\Mods"
+:: Load variables from Globals.cfg and set them with quoted values
+for /f "tokens=1* delims== eol=#" %%i in (..\..\..\Utils\Shared\Globals.cfg) do (
+    set "%%i=%%j"
+)
 
 REM Check if the P drive is mounted
 IF NOT EXIST "P:\" (
@@ -17,16 +13,16 @@ IF NOT EXIST "P:\" (
 )
 
 REM Check if the Workshop directory exists
-IF NOT EXIST "%WorkshopDir%" (
+IF NOT EXIST "%WORKDIR%" (
     powershell -Command "Write-Host 'WARNING: The Workshop directory provided does not exist ' -ForegroundColor Red"
-    echo Provided Folder: "%WorkshopDir%".
+    echo Provided Folder: "%WORKDIR%".
     echo Please make sure the Workshop folder is located there.
     pause
     exit /b
 )
 
 REM Create a junction from the Workshop directory to the target directory on the P drive
-mklink /J "%MODDIR%" "%WorkshopDir%"
+mklink /J "%MODDIR%" "%WORKDIR%"
 
 REM Check if the junction was created successfully
 IF ERRORLEVEL 1 (
@@ -38,4 +34,3 @@ IF ERRORLEVEL 1 (
 
 ENDLOCAL
 pause
-
