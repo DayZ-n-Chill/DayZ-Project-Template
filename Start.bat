@@ -17,8 +17,8 @@ SET "DETECTEDDIR=%~dp0"
 
 :: Ask the user if this directory should be the new PROJECTDIR
 echo.
-echo This should be the directory where you downloaded, or cloned the dayz-project-template from GitHub.
 powershell -Command  "Write-Host 'PROJECT DIRECTORY:' -ForegroundColor DarkMagenta -NoNewline; Write-Host ' %DETECTEDDIR%' -ForegroundColor Cyan;"
+powershell -Command  "Write-Host 'This should be the directory where you downloaded, or cloned the dayz-project-template from GitHub.' -ForegroundColor Black;"
 
 :: Define the message string
 SET "MESSAGE=Please verify that this is your Project's Location?"
@@ -67,6 +67,7 @@ if exist "%TEMPCFGFILE%" del "%TEMPCFGFILE%"
 :: Replace the original Globals.cfg with the updated one
 move /y "%TEMPCFGFILE%" "./Utils/Shared/Globals.cfg" >nul
 
+echo. 
 powershell -Command "Write-Host 'PROJECTDIR updated successfully.' -ForegroundColor Green"
 echo. 
 powershell -Command "Write-Host 'Setup is Complete.' -ForegroundColor Green"
