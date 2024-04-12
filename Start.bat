@@ -1,6 +1,7 @@
 @echo off
-SETLOCAL EnableDelayedExpansion
+SETLOCAL EnableExtensions DisableDelayedExpansion
 
+:: Reading the existing configuration and setting variables
 for /f "tokens=1* delims== eol=#" %%i in (.\Utils\Shared\Globals.cfg) do (
     set "%%i=%%j"
 )
@@ -11,8 +12,8 @@ SET "COLORS=Blue,Green,Cyan,DarkBlue,DarkGreen,DarkCyan"
 powershell -Command "$colors = '%COLORS%'.Split(','); $randomColor = Get-Random -InputObject $colors; $content = Get-Content -Path '%ASCIIARTPATH%'; $content | ForEach-Object {Write-Host $_ -ForegroundColor $randomColor}"
 
 :: Begin DayZ Project Manager Setup
-echo This setup file will help you configure your project with ease so you should only have to do this once. 
-echo Please follow along with the prompts and you will be ready to go in no time at all. 
+echo This setup file will help you configure your project with ease so you should only have to do this once.
+echo Please follow along with the prompts and you will be ready to go in no time at all.
 echo.
 pause
 
@@ -25,7 +26,6 @@ powershell -Command  "Write-Host 'PROJECT DIRECTORY:' -ForegroundColor DarkMagen
 powershell -Command  "Write-Host 'This should be the directory where you downloaded, or cloned the dayz-project-template from GitHub.' -ForegroundColor Black;"
 
 :: Define the message string
-SET "MESSAGE=Please verify that this is your Project's Location?"
 echo.
 powershell -Command "$message = 'Please verify that this is your Project''s location listed above?'; Write-Host -ForegroundColor Yellow -NoNewline $message; Write-Host ' (Y/N)' -NoNewline;"
 
@@ -36,11 +36,11 @@ if /i "%USERCONFIRM%" neq "Y" (
     echo Please enter the path to your project directory manually:
     set /p NEWPROJECTDIR=
     echo.
-    powershell -Command "Write-Host 'SET PROJECTDIR to: !NEWPROJECTDIR! in Global.cfg ' -ForegroundColor Cyan"
+    powershell -Command "Write-Host 'SET PROJECTDIR to: %NEWPROJECTDIR% in Global.cfg ' -ForegroundColor Cyan"
 ) else (
     SET "NEWPROJECTDIR=%DETECTEDDIR%"
     echo.
-    powershell -Command "Write-Host 'SET PROJECTDIR to: !NEWPROJECTDIR! in Global.cfg ' -ForegroundColor Blue"
+    powershell -Command "Write-Host 'SET PROJECTDIR to: %NEWPROJECTDIR% in Global.cfg ' -ForegroundColor Blue"
 )
 
 :: Remove trailing backslash from PROJECTDIR if it exists
@@ -52,30 +52,29 @@ if "%NEWPROJECTDIR:~-1%"=="\" (
 SET "TEMPCFGFILE=%TEMP%\temp_globals.cfg"
 if exist "%TEMPCFGFILE%" del "%TEMPCFGFILE%"
 
-(for /f "tokens=1* delims==" %%i in (./Utils/Shared/Globals.cfg) do (
-    if "%%i"=="PROJECTDIR" (
-        echo PROJECTDIR=!NEWPROJECTDIR!>> "%TEMPCFGFILE%"
+:: Read and write config file lines, modifying only PROJECTDIR
+(for /f "tokens=1* delims== eol=#" %%i in (.\Utils\Shared\Globals.cfg) do (
+    set "key=%%i"
+    set "value=%%j"
+    setlocal EnableDelayedExpansion
+    if "!key!"=="PROJECTDIR" (
+        echo PROJECTDIR=!NEWPROJECTDIR!>> "!TEMPCFGFILE!"
     ) else (
-        for /f "delims=" %%a in ("%%i") do (
-            set "line=%%a"
-            if "!line:~0,1!"=="#" (
-                echo %%a>> "%TEMPCFGFILE%"
-            ) else (
-                echo %%i=%%j>> "%TEMPCFGFILE%"
-            )
-        )
+        echo !key!=!value!>> "!TEMPCFGFILE!"
     )
+    endlocal
 )) >nul
 
 :: Replace the original Globals.cfg with the updated one
 move /y "%TEMPCFGFILE%" "./Utils/Shared/Globals.cfg" >nul
 
-echo. 
+echo.
 powershell -Command "Write-Host 'PROJECTDIR updated successfully.' -ForegroundColor Green"
-echo. 
+echo.
 
 call .\Utils\Batch\Setup\WorkshopSymlink.Bat
 
+echo. 
 powershell -Command "Write-Host 'Setup is Complete.' -ForegroundColor Green"
 timeout /t 5 /nobreak 
 exit
