@@ -42,9 +42,10 @@ SET "PROFILES=%PROJECTDIR%\Servers\Cherno\Profiles"
 :: ====================================================================================================================
 ::  Server and Game Initialization
 ::  You can change the -mission=%MISSIONDIR%" Variable with -mission=%EXPMISSIONDIR%" to use Experimental Mission
+::  If you need to use server side mods you will need to add this line to the start local server "-mod=%GLOBALSERVERMODS%"
 :: ====================================================================================================================
 
 :: Start local server.
-start /D "%GAMEDIR%\" DayZDiag_x64.exe "-mod=%GLOBALMODS%%MODS%" -filePatching -server "-profiles=%PROFILES%" "-mission=%MISSIONDIR%" "-config=%SERVERCFG%" 
+start /D "%GAMEDIR%\" DayZDiag_x64.exe -server -filePatching "-mod=%GLOBALMODS%%MODS%" "-profiles=%PROFILES%" "-mission=%MISSIONDIR%" "-config=%SERVERCFG%" 
 :: Play on local server.
 start /D "%GAMEDIR%\" DayZDiag_x64.exe "-profiles=%CLIENTLOGSDIR%" "-mod=%GLOBALMODS%%MODS%" -filePatching -connect=127.0.0.1 -port=2302 
