@@ -41,7 +41,7 @@ function Set-TextInFile {
             Set-Content -Path $filePath -Value $newContent
             return $true
         } else {
-            Write-Host "No changes needed in $filePath" -ForegroundColor Blue
+            Write-Host "No changes needed in $filePath" -ForegroundColor Cyan
             return $false
         }
     } catch {
@@ -71,6 +71,14 @@ function Rename-ModFolder {
         Write-Host "Failed to rename folder: $_" -ForegroundColor Magenta
         return $false
     }
+}
+
+function Get-RandomBrightColor {
+    <#
+    Generates a random bright color.
+    #>
+    $colors = @('Yellow', 'Cyan', 'Magenta')
+    return $colors | Get-Random
 }
 
 function Invoke-ModUpdateProcess {
@@ -123,13 +131,13 @@ function Invoke-ModUpdateProcess {
         Write-Host "'$oldModPath' to '$newModPath'" -ForegroundColor Cyan
         Write-Host ""  # New line
     } else {
-        Write-Host "No files were updated; folder rename skipped." -ForegroundColor grey
-        Write-Host "" -ForegroundColor grey  # New line
+        Write-Host "No files were updated; folder rename skipped." -ForegroundColor Gray
+        Write-Host "" -ForegroundColor Gray  # New line
     }
-    Write-Host "Thank you for using DayZ n Chill Dev Tools!" -ForegroundColor Green
-    Write-Host "https://discord.gg/dayznchill" -ForegroundColor Green
-    Write-Host "" -ForegroundColor Green  # New line
-    Write-Host "Modification process is complete." -ForegroundColor Green
+    Write-Host "File & Folder modification process complete." -ForegroundColor Green
+    Write-Host "Thank you for using DayZ n Chill Dev Tools!" -ForegroundColor Gray
+    $discordLinkColor = Get-RandomBrightColor
+    Write-Host "https://discord.gg/dayznchill" -ForegroundColor $discordLinkColor
 }
 
 Invoke-ModUpdateProcess
