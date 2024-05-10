@@ -75,9 +75,9 @@ function Rename-ModFolder {
 
 function Get-RandomBrightColor {
     <#
-    Generates a random bright color.
+    Generates a random bright color. fuck it ill just magenta
     #>
-    $colors = @('Yellow', 'Cyan', 'Magenta')
+    $colors = @('Magenta', 'Red', 'DarkMagenta','DarkRed' )
     return $colors | Get-Random
 }
 
