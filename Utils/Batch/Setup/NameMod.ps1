@@ -1,4 +1,7 @@
 function Get-ProjectDirectory {
+    <#
+    Retrieves the project directory from the configuration file.
+    #>
     param(
         [string]$configPath
     )
@@ -19,6 +22,9 @@ function Get-ProjectDirectory {
 }
 
 function Set-TextInFile {
+    <#
+    Sets the specified text in a file.
+    #>
     param(
         [string]$filePath,
         [string]$oldText,
@@ -33,20 +39,45 @@ function Set-TextInFile {
         $newContent = $content.Replace($oldText, $newText)
         if ($content -ne $newContent) {
             Set-Content -Path $filePath -Value $newContent
-            Write-Host "Updated $filePath" -ForegroundColor Green
             return $true
         } else {
             Write-Host "No changes needed in $filePath" -ForegroundColor Blue
             return $false
         }
     } catch {
-        Write-Host "Failed to update ${filePath}: $_" -ForegroundColor Red
+        Write-Host "Failed to update ${filePath}: $_" -ForegroundColor Magenta
+        return $false
+    }
+}
+
+function Rename-ModFolder {
+    <#
+    Renames the mod folder.
+    #>
+    param(
+        [string]$oldFolderPath,
+        [string]$newFolderPath
+    )
+    if (-Not (Test-Path -Path $oldFolderPath)) {
+        Write-Host "Folder does not exist: $oldFolderPath" -ForegroundColor Red
+        return $false
+    }
+    try {
+        Rename-Item -Path $oldFolderPath -NewName $newFolderPath
+        Write-Host -NoNewline "Renamed folder from: " -ForegroundColor Magenta
+        Write-Host "'$oldFolderPath' to '$newFolderPath'" -ForegroundColor Cyan
+        return $true
+    } catch {
+        Write-Host "Failed to rename folder: $_" -ForegroundColor Magenta
         return $false
     }
 }
 
 function Invoke-ModUpdateProcess {
-    Write-Host "Starting the mod update process..." -ForegroundColor Magenta
+    <#
+    Invokes the mod update process.
+    #>
+    Write-Host "Starting the mod update process..." -ForegroundColor Green
     $configPath = "E:\DayZ Projects\DayZ-Project-Template\Utils\Shared\Globals.cfg"
     $projectDir = Get-ProjectDirectory -configPath $configPath
     if (-not $projectDir) {
@@ -54,18 +85,24 @@ function Invoke-ModUpdateProcess {
         return
     }
 
-    $newModName = Read-Host -Prompt "Enter the new mod name to replace 'Mod-Name'"
+    Write-Host "Enter the new mod name to replace" -ForegroundColor Yellow -NoNewline
+    Write-Host " 'Mod-Name': " -ForegroundColor White -NoNewline
+    $newModName = Read-Host
     if (-not $newModName) {
         Write-Host "No mod name entered. Exiting." -ForegroundColor Red
         return
     }
+    Write-Host ""  # New line
+
+    $oldModPath = Join-Path -Path $projectDir -ChildPath "Mod-Name"
+    $newModPath = Join-Path -Path $projectDir -ChildPath $newModName
 
     $filesToModify = @{
         "BuildMods.bat" = Join-Path -Path $projectDir -ChildPath "Utils\Batch\Build\BuildMods.bat"
         "Globals.cfg"   = Join-Path -Path $projectDir -ChildPath "Utils\Shared\Globals.cfg"
-        "config.cpp"    = Join-Path -Path $projectDir -ChildPath "Mod-Name\Scripts\config.cpp"
-        "dayz.gproj"    = Join-Path -Path $projectDir -ChildPath "Mod-Name\Workbench\dayz.gproj"
-        "DayZTools.c"   = Join-Path -Path $projectDir -ChildPath "Mod-Name\Workbench\ToolAddons\Plugins\DayZTools.c"
+        "config.cpp"    = Join-Path -Path $oldModPath -ChildPath "Scripts\config.cpp"
+        "dayz.gproj"    = Join-Path -Path $oldModPath -ChildPath "Workbench\dayz.gproj"
+        "DayZTools.c"   = Join-Path -Path $oldModPath -ChildPath "Workbench\ToolAddons\Plugins\DayZTools.c"
     }
 
     $updatedFiles = @()
@@ -77,11 +114,22 @@ function Invoke-ModUpdateProcess {
     }
 
     if ($updatedFiles.Count -gt 0) {
-        Write-Host "Files updated: $($updatedFiles -join ', ')" -ForegroundColor Cyan
-        Write-Host "Change: Updated 'Mod-Name' to '$newModName' in all listed files." -ForegroundColor Cyan
+        Write-Host "Files updated: " -ForegroundColor Magenta -NoNewline
+        foreach ($file in $updatedFiles) {
+            Write-Host "$file, " -ForegroundColor Cyan -NoNewline
+        }
+        Write-Host ""  # New line
+        Write-Host "Renamed folder from: " -ForegroundColor Magenta -NoNewline
+        Write-Host "'$oldModPath' to '$newModPath'" -ForegroundColor Cyan
+        Write-Host ""  # New line
+    } else {
+        Write-Host "No files were updated; folder rename skipped." -ForegroundColor grey
+        Write-Host "" -ForegroundColor grey  # New line
     }
-
-    Write-Host "Modification process is complete. Thank you for using DayZ n Chill Dev Tools!" -ForegroundColor Green
+    Write-Host "Thank you for using DayZ n Chill Dev Tools!" -ForegroundColor Green
+    Write-Host "https://discord.gg/dayznchill" -ForegroundColor Green
+    Write-Host "" -ForegroundColor Green  # New line
+    Write-Host "Modification process is complete." -ForegroundColor Green
 }
 
 Invoke-ModUpdateProcess
