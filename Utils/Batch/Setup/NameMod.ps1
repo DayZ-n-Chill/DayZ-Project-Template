@@ -26,7 +26,7 @@ function Set-TextInFile {
     )
     if (-Not (Test-Path -Path $filePath)) {
         Write-Host "File does not exist: $filePath" -ForegroundColor Red
-        return
+        return $false
     }
     try {
         $content = Get-Content -Path $filePath -Raw
@@ -41,6 +41,7 @@ function Set-TextInFile {
         }
     } catch {
         Write-Host "Failed to update ${filePath}: $_" -ForegroundColor Red
+        return $false
     }
 }
 
@@ -67,11 +68,17 @@ function Invoke-ModUpdateProcess {
         "DayZTools.c"   = Join-Path -Path $projectDir -ChildPath "Mod-Name\Workbench\ToolAddons\Plugins\DayZTools.c"
     }
 
+    $updatedFiles = @()
     foreach ($fileDescription in $filesToModify.Keys) {
         $result = Set-TextInFile -filePath $filesToModify[$fileDescription] -oldText "Mod-Name" -newText $newModName
         if ($result) {
-            Write-Host "Change: Updated `Mod-Name` to `$newModName` in file $fileDescription." -ForegroundColor Cyan
+            $updatedFiles += $fileDescription
         }
+    }
+
+    if ($updatedFiles.Count -gt 0) {
+        Write-Host "Files updated: $($updatedFiles -join ', ')" -ForegroundColor Cyan
+        Write-Host "Change: Updated 'Mod-Name' to '$newModName' in all listed files." -ForegroundColor Cyan
     }
 
     Write-Host "Modification process is complete. Thank you for using DayZ n Chill Dev Tools!" -ForegroundColor Green
