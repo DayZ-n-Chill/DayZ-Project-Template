@@ -10,59 +10,58 @@ def load_project_directory(config_path):
     except FileNotFoundError:
         print("\033[91m" + f"Configuration file not found: {config_path}" + "\033[0m")  # Red
     except Exception as e:
-        print("\033[91m" + f"Error reading from configuration file: {e}" + "\033[0m")  # Red
+        print("\033[91m" + f"Error reading configuration: {e}" + "\033[0m")  # Red
     return None
 
-def replace_text_in_files(root_dir, old_text, new_text):
-    files_read = 0
-    files_modified = 0
-    for subdir, dirs, files in os.walk(root_dir):
-        print("\033[96m" + f"Reading directory: {subdir}" + "\033[0m")  # Cyan
-        for file in files:
-            file_path = os.path.join(subdir, file)
-            try:
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                files_read += 1
-                print("\033[97m" + f"Reading file: {file_path}" + "\033[0m")  # White
-            except UnicodeDecodeError:
-                try:
-                    with open(file_path, 'r', encoding='windows-1252') as f:
-                        content = f.read()
-                    files_read += 1
-                    print("\033[97m" + f"Reading file with alternate encoding: {file_path}" + "\033[0m")  # White
-                except UnicodeDecodeError:
-                    print("\033[91m" + f"Failed to read file {file_path} with any encoding." + "\033[0m")  # Red
-                    continue  # Skip this file if it can't be read with both encodings
-            if old_text in content:
-                updated_content = content.replace(old_text, new_text)
-                with open(file_path, 'w', encoding='utf-8') as f:
-                    f.write(updated_content)
-                files_modified += 1
-                print("\033[92m" + f"Modified file: {file_path}" + "\033[0m")  # Green
-    return files_read, files_modified
+def replace_text_in_file(file_path, old_text, new_text):
+    """Replaces text in a single file, logs changes, with error handling."""
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            content = file.read()
+        new_content = content.replace(old_text, new_text)
+        if content != new_content:
+            with open(file_path, 'w', encoding='utf-8') as file:
+                file.write(new_content)
+            print("\033[92m" + f"Updated {file_path}" + "\033[0m")  # Green
+            print_changes(content, new_content)
+        else:
+            print("\033[93m" + f"No changes needed in {file_path}" + "\033[0m")  # Yellow
+    except FileNotFoundError:
+        print("\033[91m" + f"File not found: {file_path}" + "\033[0m")  # Red
+    except Exception as e:
+        print("\033[91m" + f"Failed to update {file_path}: {e}" + "\033[0m")  # Red
 
-def rename_folders(root_dir, old_name, new_name):
-    for subdir, dirs, _ in os.walk(root_dir, topdown=False):
-        for dir in dirs:
-            if dir == old_name:
-                old_dir_path = os.path.join(subdir, dir)
-                new_dir_path = os.path.join(subdir, new_name)
-                os.rename(old_dir_path, new_dir_path)
-                print("\033[95m" + f"Renamed folder from {old_dir_path} to {new_dir_path}" + "\033[0m")  # Purple
+def print_changes(old_content, new_content):
+    """Prints differences between old and new content."""
+    from difflib import unified_diff
+    diff = unified_diff(old_content.splitlines(), new_content.splitlines(), lineterm='', fromfile='before', tofile='after')
+    for line in diff:
+        print(line)
 
-config_path = os.path.join("e:", os.sep, "DayZ Projects", "DayZ-Project-Template", "Utils", "Shared", "Globals.cfg")
-project_dir = load_project_directory(config_path)
-if not project_dir:
-    print("\033[91m" + "Failed to load the project directory. Exiting." + "\033[0m")  # Red
-    exit(1)
+def main():
+    config_path = r"E:\DayZ Projects\DayZ-Project-Template\Utils\Shared\Globals.cfg"
+    project_dir = load_project_directory(config_path)
+    if not project_dir:
+        print("\033[91m" + "Failed to load the project directory from configuration. Exiting." + "\033[0m")  # Red
+        return
+    
+    new_mod_name = input("\033[93m" + "Enter the new mod name to replace 'Mod-Name': " + "\033[0m").strip()  # Yellow
+    if not new_mod_name:
+        print("\033[91m" + "No mod name entered. Exiting." + "\033[0m")  # Red
+        return
 
-new_mod_name = input("Enter your new mod name to replace 'Mod-Name': ").strip()
-if not new_mod_name:
-    print("\033[91m" + "No mod name entered. Exiting." + "\033[0m")  # Red
-    exit(1)
+    files_to_modify = {
+        "BuildMods.bat": os.path.join(project_dir, "Utils", "Batch", "Build", "BuildMods.bat"),
+        "Globals.cfg": os.path.join(project_dir, "Utils", "Shared", "Globals.cfg"),
+        "config.cpp": os.path.join(project_dir, "Mod-Name", "Scripts", "config.cpp"),
+        "dayz.gproj": os.path.join(project_dir, "Mod-Name", "Workbench", "dayz.gproj"),
+        "DayZTools.c": os.path.join(project_dir, "Mod-Name", "Workbench", "ToolAddons", "Plugins", "DayZTools.c")
+    }
 
-files_read, files_modified = replace_text_in_files(project_dir, "Mod-Name", new_mod_name)
-rename_folders(project_dir, "Mod-Name", new_mod_name)
+    for file_description, file_path in files_to_modify.items():
+        replace_text_in_file(file_path, "Mod-Name", new_mod_name)
 
-print("\033[92m" + f"Modification process is complete. Files read: {files_read}, Files modified: {files_modified}" + "\033[0m")  # Green
+    print("\033[92m" + "Modification process is complete. Thank you for using DayZ n Chill Dev Tools!" + "\033[0m")  # Green
+
+if __name__ == "__main__":
+    main()
