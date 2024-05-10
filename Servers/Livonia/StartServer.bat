@@ -28,7 +28,8 @@ for /f "tokens=1* delims== eol=#" %%i in (..\..\Utils\Shared\Globals.cfg) do (
 
 ::  The Mods Section below are for mods that are specific to this server only. If you want to test with multiple maps,
 ::  and or servers, you will need to edit the globals.cfg in the Util/Shared folder.
-SET "MODS=P:\Mod-Name;"
+::  SET "MODS=P:\Mods\Server_Specific_Mod;"
+SET ""
 
 :: ====================================================================================================================
 ::  NO NEED TO MODIFY ANYTHING ELSE, UNLESS YOU KNOW WHAT YOU'RE DOING!!!
