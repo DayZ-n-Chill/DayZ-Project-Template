@@ -22,8 +22,8 @@ SET "DETECTEDDIR=%~dp0"
 
 :: Ask the user if this directory should be the new PROJECTDIR
 echo.
-powershell -Command  "Write-Host 'PROJECT DIRECTORY:' -ForegroundColor DarkMagenta -NoNewline; Write-Host ' %DETECTEDDIR%' -ForegroundColor Cyan;"
-powershell -Command  "Write-Host 'This should be the directory where you downloaded, or cloned the dayz-project-template from GitHub.' -ForegroundColor Black;"
+powershell -Command  "Write-Host 'PROJECT DIRECTORY:' -ForegroundColor DarkMagenta -NoNewline; Write-Host ' %DETECTEDDIR%' -ForegroundColor DarkCyan;"
+powershell -Command  "Write-Host 'This should be the directory where you downloaded, or cloned the dayz-project-template from GitHub.' -ForegroundColor Gray;"
 
 :: Define the message string
 echo.
@@ -35,12 +35,11 @@ if /i "%USERCONFIRM%" neq "Y" (
     echo.
     echo Please enter the path to your project directory manually:
     set /p NEWPROJECTDIR=
-    echo.
-    powershell -Command "Write-Host 'SET PROJECTDIR to: %NEWPROJECTDIR% in Global.cfg ' -ForegroundColor Cyan"
+    powershell -Command "Write-Host 'Setting project directory in Global.cfg ' -ForegroundColor Cyan"
 ) else (
     SET "NEWPROJECTDIR=%DETECTEDDIR%"
     echo.
-    powershell -Command "Write-Host 'SET PROJECTDIR to: %NEWPROJECTDIR% in Global.cfg ' -ForegroundColor Blue"
+    powershell -Command "Write-Host 'Setting project directory in Global.cfg ' -ForegroundColor Cyan"
 )
 
 :: Remove trailing backslash from PROJECTDIR if it exists
@@ -68,7 +67,6 @@ if exist "%TEMPCFGFILE%" del "%TEMPCFGFILE%"
 :: Replace the original Globals.cfg with the updated one
 move /y "%TEMPCFGFILE%" "./Utils/Shared/Globals.cfg" >nul
 
-echo.
 powershell -Command "Write-Host 'PROJECTDIR updated successfully.' -ForegroundColor Green"
 echo.
 
