@@ -37,4 +37,7 @@ IF ERRORLEVEL 1 (
     powershell -Command "Write-Host 'Workshop mods are linked to' -ForegroundColor Green -NoNewline; Write-Host ' "%MODDIR%" ' -ForegroundColor Cyan -NoNewline; Write-Host 'on the P drive.' -ForegroundColor Green;"
 )
 
+:: Create a symlink for the user-specified directory on the P drive
+mklink /J "P:\Mods\%userModDir%" "%userModDir%" >nul 2>&1
+
 ENDLOCAL

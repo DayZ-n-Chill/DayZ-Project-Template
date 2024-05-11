@@ -80,6 +80,9 @@ function Invoke-ModUpdateProcess {
         return
     }
 
+    $Global:UserInputModName = $newModName 
+    if ($null -ne $Global:UserInputModName) { }
+
     $configPath = "E:\DayZ Projects\DayZ-Project-Template\Utils\Shared\Globals.cfg"
     $projectDir = Get-ProjectDirectory -configPath $configPath
     if (-not $projectDir) {
@@ -143,3 +146,4 @@ function Invoke-ModUpdateProcess {
 }
 
 Invoke-ModUpdateProcess
+
