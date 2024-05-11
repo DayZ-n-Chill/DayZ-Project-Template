@@ -3,9 +3,9 @@ SETLOCAL
 :: Load variables from Globals.cfg and set them with quoted values
 :: Uncomment the below code if you plan to run this on your own and not just with the start.bat
 
-:: for /f "tokens=1* delims== eol=#" %%i in (..\..\Shared\Globals.cfg) do (
-::     set "%%i=%%j"
-:: )
+for /f "tokens=1* delims== eol=#" %%i in (..\..\Shared\Globals.cfg) do (
+    set "%%i=%%j"
+)
 
 REM Check if the P drive is mounted
 IF NOT EXIST "%PDRIVE%" (
@@ -60,5 +60,18 @@ IF ERRORLEVEL 1 (
     powershell -Command "Write-Host 'Symlink created successfully on the P drive.' -ForegroundColor Green"
     powershell -Command "Write-Host 'New mod directory' -ForegroundColor Green -NoNewline; Write-Host ' %newModPath%' -ForegroundColor Cyan -NoNewline; Write-Host ' is now linked to the root of the P drive.' -ForegroundColor Green;"
 )
+
+:: Create a symlink for SYMLDIR on the P drive
+mklink /J "P:\%SYMLDIR%" "%SYMLDIR%" >nul 2>&1
+IF ERRORLEVEL 1 (
+    powershell -Command "Write-Host 'ERROR:' -ForegroundColor Red -NoNewline; Write-Host ' Failed to create symlink for %SYMLDIR% on the P drive. Please check the directory and permissions.' -ForegroundColor Red"
+    pause
+    exit /b
+) ELSE (
+    echo.
+    powershell -Command "Write-Host 'Symlink created successfully on the P drive.' -ForegroundColor Green"
+    powershell -Command "Write-Host 'SYMLDIR' -ForegroundColor Green -NoNewline; Write-Host ' %SYMLDIR%' -ForegroundColor Cyan -NoNewline; Write-Host ' is now linked to the P drive.' -ForegroundColor Green;"
+)
+
 
 ENDLOCAL
