@@ -109,7 +109,8 @@ function Invoke-ModUpdateProcess {
         "DayZTools.c"   = Join-Path -Path $oldModPath -ChildPath "Workbench\ToolAddons\Plugins\DayZTools.c"
     }
 
-    Write-Host "Updating all files with the proper pathing for your mod name." -ForegroundColor Green
+    Write-Host ""  # Empty line for spacing
+    Write-Host "Updating all files with the proper pathing for your mod name." -ForegroundColor Magenta
     Write-Host ""  # Empty line for spacing
 
     $updatedFiles = @()
@@ -122,14 +123,13 @@ function Invoke-ModUpdateProcess {
 
     Write-Host "Files to update:" -ForegroundColor Cyan -NoNewline
     Write-Host " $($updatedFiles -join ', ')" -ForegroundColor Gray
-    Write-Host ""  # Empty line for spacing
     foreach ($fileDescription in $updatedFiles) {
         Write-Host "Updated:" -ForegroundColor Green -NoNewline
         Write-Host " $($filesToModify[$fileDescription])" -ForegroundColor Gray
-        Write-Host ""  # Empty line for spacing
     }
 
     if ($updatedFiles.Count -gt 0) {
+        Write-Host ""  # Empty line for spacing
         Write-Host "Updated all pathing and folders from" -ForegroundColor Cyan -NoNewline
         Write-Host " 'Mod-Name'" -ForegroundColor Gray -NoNewline
         Write-Host " to" -ForegroundColor Cyan -NoNewline
