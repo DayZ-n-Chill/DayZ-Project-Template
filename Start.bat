@@ -73,6 +73,10 @@ echo.
 :: Run NameMod.ps1 using PowerShell
 powershell -ExecutionPolicy Bypass -File ".\Utils\Batch\Setup\NameMod.ps1"
 echo.
+powershell -Command "Write-Host 'NameMod configuration has been updated. Please verify the new settings in Globals.cfg and press any key to continue...' -ForegroundColor Yellow"
+pause
+
+echo.
 powershell -Command "Write-Host 'Setting up symlinks.' -ForegroundColor Magenta"
 call .\Utils\Batch\Setup\WorkshopSymlink.Bat 
 echo.
