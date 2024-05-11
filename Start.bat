@@ -77,7 +77,5 @@ powershell -Command "Write-Host 'Setting up symlinks.' -ForegroundColor Magenta"
 call .\Utils\Batch\Setup\WorkshopSymlink.Bat
 echo.
 powershell -Command "Write-Host 'Setup is Complete.' -ForegroundColor Green"
-timeout /t 15 /nobreak 
-echo.
+timeout /t 30 /nobreak 
 exit
-pause
