@@ -74,8 +74,8 @@ echo.
 
 call .\Utils\Batch\Setup\WorkshopSymlink.Bat
 
-:: Need to add Name You Mod and change folder names. 
-:: Then add wrap dayz or wrap mod bats. 
+:: Run NameMod.ps1 using PowerShell
+powershell -File "%PROJECTDIR%\Utils\Batch\Setup\NameMod.ps1"
 
 powershell -Command "Write-Host 'Setup is Complete.' -ForegroundColor Green"
 timeout /t 5 /nobreak 
