@@ -71,16 +71,12 @@ powershell -Command "Write-Host 'PROJECTDIR updated successfully.' -ForegroundCo
 
 :: Run NameMod.ps1 using PowerShell
 powershell -ExecutionPolicy Bypass -File ".\Utils\Batch\Setup\NameMod.ps1"
-echo.
-powershell -Command "Write-Host 'NameMod configuration has been updated. Please verify the new settings in Globals.cfg and press any key to continue...' -ForegroundColor Yellow"
-pause
 
 :: Reload the configuration from Globals.cfg
 for /f "tokens=1* delims== eol=#" %%i in (.\Utils\Shared\Globals.cfg) do (
    set "%%i=%%j"
 )
-
-echo.
+:: Set Simlinks
 powershell -Command "Write-Host 'Setting up symlinks.' -ForegroundColor Magenta"
 call .\Utils\Batch\Setup\WorkshopSymlink.Bat 
 echo.

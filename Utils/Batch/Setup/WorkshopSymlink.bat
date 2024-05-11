@@ -2,10 +2,9 @@
 SETLOCAL
 :: Load variables from Globals.cfg and set them with quoted values
 :: Uncomment the below code if you plan to run this on your own and not just with the start.bat
-
-@REM for /f "tokens=1* delims== eol=#" %%i in (..\..\Shared\Globals.cfg) do (
-@REM     set "%%i=%%j"
-@REM )
+:: for /f "tokens=1* delims== eol=#" %%i in (..\..\Shared\Globals.cfg) do (
+::     set "%%i=%%j"
+:: )
 
 :: Check if the P drive is mounted
 IF NOT EXIST "%PDRIVE%" (
@@ -25,8 +24,6 @@ IF NOT EXIST "%WORKDIR%" (
 
 :: Create a junction from the Workshop directory to the target directory on the P drive
 mklink /J "%MODDIR%" "%WORKDIR%" >nul 2>&1
-
-:: Check if the junction was created successfully
 IF ERRORLEVEL 1 (
     powershell -Command "Write-Host 'SUCCESS:' -ForegroundColor Green -NoNewline; Write-Host ' P:\Mods\' -ForegroundColor Cyan -NoNewline; Write-Host ' already exists, Carry On!' -ForegroundColor Green -NoNewline;"
     echo. 
