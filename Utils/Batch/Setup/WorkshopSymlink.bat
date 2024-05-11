@@ -38,7 +38,7 @@ IF ERRORLEVEL 1 (
 )
 
 :: Create a symlink for SYMLDIR on the P drive
-mklink /J "%SYMLDIR%" "%WORKDIR%" >nul 2>&1
+mklink /J "%SYMLDIR%" "%YOURMODDIR%" >nul 2>&1
 IF ERRORLEVEL 1 (
     powershell -Command "Write-Host 'ERROR:' -ForegroundColor Red -NoNewline; Write-Host ' Failed to create symlink for %SYMLDIR%. Please check the directory and permissions.' -ForegroundColor Red"
     pause
