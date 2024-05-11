@@ -70,6 +70,7 @@ function Rename-ModFolder {
 }
 
 function Invoke-ModUpdateProcess {
+    Write-Host ""  # Empty line for spacing
     Write-Host "Starting file & folder pathing process..." -ForegroundColor Magenta
     Write-Host "Enter the name of your" -ForegroundColor Yellow -NoNewline
     Write-Host " 'Mod-Name': " 
