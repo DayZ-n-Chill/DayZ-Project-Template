@@ -49,4 +49,16 @@ IF ERRORLEVEL 1 (
     powershell -Command "Write-Host 'User specified directory is linked to' -ForegroundColor Green -NoNewline; Write-Host ' P:\Mods\%userModDir%' -ForegroundColor Cyan -NoNewline; Write-Host ' on the P drive.' -ForegroundColor Green;"
 )
 
+:: Create a symlink for the new mod path on the root of the P drive
+mklink /J "P:\%newModPath%" "%newModPath%" >nul 2>&1
+IF ERRORLEVEL 1 (
+    powershell -Command "Write-Host 'ERROR:' -ForegroundColor Red -NoNewline; Write-Host ' Failed to create symlink for %newModPath% on the P drive. Please check the directory and permissions.' -ForegroundColor Red"
+    pause
+    exit /b
+) ELSE (
+    echo.
+    powershell -Command "Write-Host 'Symlink created successfully on the P drive.' -ForegroundColor Green"
+    powershell -Command "Write-Host 'New mod directory' -ForegroundColor Green -NoNewline; Write-Host ' %newModPath%' -ForegroundColor Cyan -NoNewline; Write-Host ' is now linked to the root of the P drive.' -ForegroundColor Green;"
+)
+
 ENDLOCAL

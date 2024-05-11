@@ -136,6 +136,9 @@ function Invoke-ModUpdateProcess {
             Write-Host " to" -ForegroundColor Cyan -NoNewline
             Write-Host " '$newModPath'" -ForegroundColor DarkGray
         }
+
+        # Setting the environment variable for the new mod path
+        $env:newModPath = "%$newModPath%"
     } else {
         Write-Host "No files were updated; folder rename skipped." -ForegroundColor Magenta
     }
@@ -146,4 +149,5 @@ function Invoke-ModUpdateProcess {
 }
 
 Invoke-ModUpdateProcess
+
 
