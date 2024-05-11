@@ -71,7 +71,6 @@ function Rename-ModFolder {
 
 function Invoke-ModUpdateProcess {
     Write-Host "Starting file & folder pathing process..." -ForegroundColor Magenta
-    Write-Host ""  # Empty line for spacing
     Write-Host "Enter the name of your" -ForegroundColor Yellow -NoNewline
     Write-Host " 'Mod-Name': " 
     $newModName = Read-Host
@@ -100,8 +99,7 @@ function Invoke-ModUpdateProcess {
 
     Write-Host ""  # Empty line for spacing
     Write-Host "Updating all files with the proper pathing for your mod name." -ForegroundColor Magenta
-    Write-Host ""  # Empty line for spacing
-
+    
     $updatedFiles = @()
     foreach ($fileDescription in $filesToModify.Keys) {
         $result = Set-TextInFile -filePath $filesToModify[$fileDescription] -oldText "Mod-Name" -newText $newModName
@@ -114,27 +112,28 @@ function Invoke-ModUpdateProcess {
     Write-Host " $($updatedFiles -join ', ')" -ForegroundColor Gray
     foreach ($fileDescription in $updatedFiles) {
         Write-Host "Updated:" -ForegroundColor Green -NoNewline
-        Write-Host " $($filesToModify[$fileDescription])" -ForegroundColor Gray
+        Write-Host " $($filesToModify[$fileDescription])" -ForegroundColor DarkGray
     }
 
     if ($updatedFiles.Count -gt 0) {
         Write-Host ""  # Empty line for spacing
-        Write-Host "Updated all pathing and folders from" -ForegroundColor Cyan -NoNewline
+        Write-Host "Updated all pathing and folders from" -ForegroundColor Magenta -NoNewline
         Write-Host " 'Mod-Name'" -ForegroundColor Gray -NoNewline
-        Write-Host " to" -ForegroundColor Cyan -NoNewline
+        Write-Host " to" -ForegroundColor Magenta -NoNewline
         Write-Host " '$newModName'" -ForegroundColor Gray -NoNewline
-        Write-Host " in all listed files." -ForegroundColor Cyan
-        Write-Host ""  # Empty line for spacing
-
+        Write-Host " in all listed files." -ForegroundColor Magenta
+        
         $renameResult = Rename-ModFolder -oldFolderPath $oldModPath -newFolderPath $newModPath
         if (-not $renameResult) {
             Write-Host "Failed to rename the mod folder. Please check the paths and permissions." -ForegroundColor Red
         } else {
-            Write-Host "Renamed folder from:" -ForegroundColor Green -NoNewline
-            Write-Host " '$oldModPath' to '$newModPath'" -ForegroundColor Gray
+            Write-Host "Renamed folder:" -ForegroundColor Green -NoNewline
+            Write-Host " '$oldModPath'" -ForegroundColor DarkGray -NoNewline
+            Write-Host " to" -ForegroundColor Cyan -NoNewline
+            Write-Host " '$newModPath'" -ForegroundColor DarkGray
         }
     } else {
-        Write-Host "No files were updated; folder rename skipped." -ForegroundColor Blue
+        Write-Host "No files were updated; folder rename skipped." -ForegroundColor Magenta
     }
 
     Write-Host ""  # Empty line for final spacing
