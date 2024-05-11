@@ -68,7 +68,6 @@ if exist "%TEMPCFGFILE%" del "%TEMPCFGFILE%"
 move /y "%TEMPCFGFILE%" "./Utils/Shared/Globals.cfg" >nul
 
 powershell -Command "Write-Host 'PROJECTDIR updated successfully.' -ForegroundColor Green"
-echo.
 
 :: Run NameMod.ps1 using PowerShell
 powershell -ExecutionPolicy Bypass -File ".\Utils\Batch\Setup\NameMod.ps1"
