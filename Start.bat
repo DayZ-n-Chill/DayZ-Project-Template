@@ -74,7 +74,7 @@ echo.
 powershell -ExecutionPolicy Bypass -File ".\Utils\Batch\Setup\NameMod.ps1"
 echo.
 powershell -Command "Write-Host 'Setting up symlinks.' -ForegroundColor Magenta"
-call .\Utils\Batch\Setup\WorkshopSymlink.Bat
+call .\Utils\Batch\Setup\WorkshopSymlink.Bat "%NEW_FOLDER_NAME%"
 echo.
 powershell -Command "Write-Host 'Setup is Complete.' -ForegroundColor Green"
 timeout /t 30 /nobreak 

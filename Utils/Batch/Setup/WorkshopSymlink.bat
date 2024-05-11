@@ -39,5 +39,14 @@ IF ERRORLEVEL 1 (
 
 :: Create a symlink for the user-specified directory on the P drive
 mklink /J "P:\Mods\%userModDir%" "%userModDir%" >nul 2>&1
+IF ERRORLEVEL 1 (
+    powershell -Command "Write-Host 'ERROR:' -ForegroundColor Red -NoNewline; Write-Host ' Failed to create symlink for %userModDir%. Please check the directory and permissions.' -ForegroundColor Red"
+    pause
+    exit /b
+) ELSE (
+    echo.
+    powershell -Command "Write-Host 'Symlink created successfully.' -ForegroundColor Green"
+    powershell -Command "Write-Host 'User specified directory is linked to' -ForegroundColor Green -NoNewline; Write-Host ' P:\Mods\%userModDir%' -ForegroundColor Cyan -NoNewline; Write-Host ' on the P drive.' -ForegroundColor Green;"
+)
 
 ENDLOCAL
