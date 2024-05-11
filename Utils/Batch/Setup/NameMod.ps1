@@ -59,27 +59,16 @@ function Rename-ModFolder {
         [string]$newFolderPath
     )
     if (-Not (Test-Path -Path $oldFolderPath)) {
-        Write-Host "Folder does not exist: $oldFolderPath" -ForegroundColor Red
         return $false
     }
     try {
         Rename-Item -Path $oldFolderPath -NewName $newFolderPath
-        Write-Host -NoNewline "Renamed folder from: " -ForegroundColor Magenta
-        Write-Host "'$oldFolderPath' to '$newFolderPath'" -ForegroundColor Cyan
         return $true
     } catch {
-        Write-Host "Failed to rename folder: $_" -ForegroundColor Magenta
         return $false
     }
 }
 
-function Get-RandomBrightColor {
-    <#
-    Generates a random bright color. fuck it ill just magenta
-    #>
-    $colors = @('Magenta', 'Red', 'DarkMagenta','DarkRed' )
-    return $colors | Get-Random
-}
 function Invoke-ModUpdateProcess {
     Write-Host "Starting file & folder pathing process..." -ForegroundColor Magenta
     Write-Host ""  # Empty line for spacing
