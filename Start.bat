@@ -75,7 +75,7 @@ echo.
 call .\Utils\Batch\Setup\WorkshopSymlink.Bat
 
 :: Run NameMod.ps1 using PowerShell
-powershell -File "%PROJECTDIR%\Utils\Batch\Setup\NameMod.ps1"
+powershell -ExecutionPolicy Bypass -File "%PROJECTDIR%\Utils\Batch\Setup\NameMod.ps1"
 
 powershell -Command "Write-Host 'Setup is Complete.' -ForegroundColor Green"
 timeout /t 5 /nobreak 
