@@ -24,7 +24,7 @@ IF NOT EXIST "%WORKDIR%" (
 )
 
 REM Create a junction from the Workshop directory to the target directory on the P drive
-mklink /J "%MODDIR%" "%WORKDIR%"
+mklink /J "%MODDIR%" "%WORKDIR%" >nul 2>&1
 
 REM Check if the junction was created successfully
 IF ERRORLEVEL 1 (
@@ -38,4 +38,3 @@ IF ERRORLEVEL 1 (
 )
 
 ENDLOCAL
-
