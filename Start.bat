@@ -70,12 +70,13 @@ move /y "%TEMPCFGFILE%" "./Utils/Shared/Globals.cfg" >nul
 powershell -Command "Write-Host 'PROJECTDIR updated successfully.' -ForegroundColor Green"
 echo.
 
-call .\Utils\Batch\Setup\WorkshopSymlink.Bat
-
 :: Run NameMod.ps1 using PowerShell
 powershell -ExecutionPolicy Bypass -File ".\Utils\Batch\Setup\NameMod.ps1"
-
+echo.
+powershell -Command "Write-Host 'Setting up symlinks.' -ForegroundColor Magenta"
+call .\Utils\Batch\Setup\WorkshopSymlink.Bat
+echo.
 powershell -Command "Write-Host 'Setup is Complete.' -ForegroundColor Green"
-@REM timeout /t 5 /nobreak 
-@REM exit
+timeout /t 5 /nobreak 
+exit
 pause
