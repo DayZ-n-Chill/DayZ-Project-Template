@@ -2,9 +2,9 @@
 SETLOCAL EnableExtensions DisableDelayedExpansion
 
 :: Reading the existing configuration and setting variables
-:: for /f "tokens=1* delims== eol=#" %%i in (.\Utils\Shared\Globals.cfg) do (
-::    set "%%i=%%j"
-:: )
+for /f "tokens=1* delims== eol=#" %%i in (.\Utils\Shared\Globals.cfg) do (
+   set "%%i=%%j"
+)
 
 :: Show the DayZ n Chill Dev Logo.
 SET "ASCIIARTPATH=.\Utils\Shared\Branding.txt"
