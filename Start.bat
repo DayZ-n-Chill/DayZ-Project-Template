@@ -76,10 +76,16 @@ echo.
 powershell -Command "Write-Host 'NameMod configuration has been updated. Please verify the new settings in Globals.cfg and press any key to continue...' -ForegroundColor Yellow"
 pause
 
+:: Reload the configuration from Globals.cfg
+for /f "tokens=1* delims== eol=#" %%i in (.\Utils\Shared\Globals.cfg) do (
+   set "%%i=%%j"
+)
+
 echo.
 powershell -Command "Write-Host 'Setting up symlinks.' -ForegroundColor Magenta"
 call .\Utils\Batch\Setup\WorkshopSymlink.Bat 
 echo.
+
 powershell -Command "Write-Host 'Setup is Complete.' -ForegroundColor Green"
 timeout /t 30 /nobreak 
 exit
