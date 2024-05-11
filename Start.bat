@@ -33,7 +33,7 @@ set /p USERCONFIRM=
 
 if /i "%USERCONFIRM%" neq "Y" (
     echo.
-    echo Please enter the path to your project directory manually:
+    powershell -Command "Write-Host 'Please enter the path to your project directory manually: ' -ForegroundColor Yellow"
     set /p NEWPROJECTDIR=
     powershell -Command "Write-Host 'Setting project directory in Global.cfg ' -ForegroundColor Cyan"
 ) else (
@@ -77,6 +77,7 @@ powershell -Command "Write-Host 'Setting up symlinks.' -ForegroundColor Magenta"
 call .\Utils\Batch\Setup\WorkshopSymlink.Bat
 echo.
 powershell -Command "Write-Host 'Setup is Complete.' -ForegroundColor Green"
-timeout /t 5 /nobreak 
+timeout /t 15 /nobreak 
+echo.
 exit
 pause
