@@ -99,7 +99,8 @@ function Invoke-ModUpdateProcess {
     $Global:UserInputModName = $newModName 
     if ($null -ne $Global:UserInputModName) { }
 
-    $configPath = "E:\DayZ Projects\DayZ-Project-Template\Utils\Shared\Globals.cfg"
+    $currentDir = Get-Location
+    $configPath = Join-Path -Path $currentDir -ChildPath "Utils\Shared\Globals.cfg"
     $projectDir = Get-ProjectDirectory -configPath $configPath
     if (-not $projectDir) {
         Write-Host "Failed to load the project directory from configuration. Exiting." -ForegroundColor Red
@@ -111,7 +112,7 @@ function Invoke-ModUpdateProcess {
 
     $filesToModify = @{
         "BuildMods.bat" = Join-Path -Path $projectDir -ChildPath "Utils\Batch\Build\BuildMods.bat"
-        "Globals.cfg"   = Join-Path -Path $projectDir -ChildPath "Utils\Shared\Globals.cfg"
+        "Globals.cfg"   = $configPath
         "config.cpp"    = Join-Path -Path $oldModPath -ChildPath "Scripts\config.cpp"
         "dayz.gproj"    = Join-Path -Path $oldModPath -ChildPath "Workbench\dayz.gproj"
         "DayZTools.c"   = Join-Path -Path $oldModPath -ChildPath "Workbench\ToolAddons\Plugins\DayZTools.c"
