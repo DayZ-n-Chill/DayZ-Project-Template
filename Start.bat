@@ -90,6 +90,7 @@ for /f "tokens=1* delims== eol=#" %%i in (.\Utils\Shared\Globals.cfg) do (
    set "%%i=%%j"
 )
 :: Set Simlinks
+echo.
 powershell -Command "Write-Host 'Setting up symlinks.' -ForegroundColor Magenta"
 call .\Utils\Batch\Setup\WorkshopSymlink.Bat 
 echo.
