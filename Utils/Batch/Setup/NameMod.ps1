@@ -80,22 +80,6 @@ function Invoke-ModUpdateProcess {
         return
     }
 
-    if ($newModName -contains ' ') {
-        Write-Host "It's best practice to avoid spaces in directory names. Choose an option:" -ForegroundColor Cyan
-        Write-Host "[1] Camel Case (ExampleCamelCase)"
-        Write-Host "[2] Underscores (example_underscores)"
-        Write-Host "[3] Leave as is (with spaces)"
-        $choice = Read-Host "Enter your choice (1, 2, or 3)"
-        switch ($choice) {
-            '1' { $newModName = -join ($newModName -split ' ' | ForEach-Object { $_.Substring(0,1).ToUpper() + $_.Substring(1).ToLower() }) }
-            '2' { $newModName = $newModName -replace ' ', '_' }
-            '3' { } # Leave as is
-            default {
-                Write-Host "Invalid choice, using the name with spaces." -ForegroundColor Red
-            }
-        }
-    }
-
     $Global:UserInputModName = $newModName 
     if ($null -ne $Global:UserInputModName) { }
 
@@ -163,5 +147,3 @@ function Invoke-ModUpdateProcess {
     Write-Host "Modification process is complete." -ForegroundColor Green
     Write-Host "Thank you for using DayZ n Chill Dev Tools!" -ForegroundColor Green
 }
-
-Invoke-ModUpdateProcess
