@@ -58,6 +58,8 @@ if exist "%TEMPCFGFILE%" del "%TEMPCFGFILE%"
     setlocal EnableDelayedExpansion
     if "!key!"=="PROJECTDIR" (
         echo PROJECTDIR=!NEWPROJECTDIR!>> "!TEMPCFGFILE!"
+    ) else if "!key!"=="YOURMODDIR" (
+        echo YOURMODDIR=!NEWPROJECTDIR!\Mod-Name>> "!TEMPCFGFILE!"
     ) else (
         echo !key!=!value!>> "!TEMPCFGFILE!"
     )
